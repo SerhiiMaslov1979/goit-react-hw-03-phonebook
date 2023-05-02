@@ -1,0 +1,17 @@
+.App__container {
+    display: block;
+    flex-direction: column;
+    padding: 30px;
+    /* border: 1px solid black; */
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+}
+
+
+.ContactsList__list {
+   padding-top: 0;
+  
+}

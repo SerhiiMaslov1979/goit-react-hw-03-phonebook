@@ -1,0 +1,22 @@
+.ContactsList__list {
+    width: 380px;
+    align-items: start;
+    padding: 0;
+
+}
+
+
+.ContactsList__item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* border: 1px solid black; */
+    justify-content: space-between;
+   
+}
+
+.ContactsList__text {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 15px;
+}

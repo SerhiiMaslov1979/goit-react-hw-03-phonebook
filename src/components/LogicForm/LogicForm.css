@@ -1,0 +1,33 @@
+.LogicForm__Form{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 35px;
+    border: 1px solid black;
+    width: 380px;
+   
+}
+
+.LogicForm__btn {
+
+    width: 100px;
+}
+.LogicForm__name {
+   
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 5px;
+    margin-bottom: 30px;
+   
+
+}
+
+.LogicForm__number {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    width: 250px;
+    gap: 5px;
+
+}
