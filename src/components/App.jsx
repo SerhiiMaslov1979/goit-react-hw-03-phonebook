@@ -8,14 +8,35 @@ import './App.css';
 export class App extends Component {
   state = {
     contacts: [
-      { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
-      { id: nanoid(), name: 'Eden Clements', number: '645-17-79' },
-      { id: nanoid(), name: 'Annie Copeland', number: '227-91-26' },
+      // { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
+      // { id: nanoid(), name: 'Eden Clements', number: '645-17-79' },
+      // { id: nanoid(), name: 'Annie Copeland', number: '227-91-26' },
     ],
 
     filter: '',
   };
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    const savedContacts = localStorage.getItem('contacts');
+    const initialContacts = localStorage.getItem('contacts');
+    console.log(savedContacts);
+    if (savedContacts !== null) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    } else {
+      this.setState({ contacts: initialContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+    console.log('prevState', prevState);
+    console.log('this.state', this.stae);
+  }
 
   addContact = ({ name, number }) => {
     if (
@@ -51,6 +72,7 @@ export class App extends Component {
   changleFilterValue = e => this.setState({ filter: e.target.value });
 
   render() {
+    console.log('render');
     const { filter, contacts } = this.state;
     const filteredContacts = this.getFilteredContacts();
     return (
