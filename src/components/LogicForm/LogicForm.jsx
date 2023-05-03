@@ -6,8 +6,16 @@ import PropTypes from 'prop-types';
 const numberReg =
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
 
+const nameReg = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
+
 const schema = yup.object().shape({
-  name: yup.string().min(2).max(25).required(),
+  name: yup
+    .string()
+    .matches(
+      nameReg,
+      'Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d`Artagnan'
+    )
+    .required(),
   number: yup
     .string()
     .matches(
